@@ -157,26 +157,26 @@ namespace SoftwareGL {
 
 		// Mesh creation.
 		auto gl_mesh = 
-			std::make_shared<sgl::Mesh>("../Asset/CubeUVNormal.obj");
+			std::make_shared<sgl::Mesh>("../Asset/MonkeyUVNormal.obj");
 
 		// Create the texture and bind it to the mesh.
 		sgl::TextureManager texture_manager{};
 		texture_manager.AddTexture(
 			"colorMap",
-			std::make_shared<sgl::Texture>("../Asset/Metal/Color.jpg"));
+			std::make_shared<sgl::Texture>("../Asset/Bronze/Color.jpg"));
 		texture_manager.AddTexture(
 			"normalMap",
-			std::make_shared<sgl::Texture>("../Asset/Metal/Normal.jpg"));
+			std::make_shared<sgl::Texture>("../Asset/Bronze/Normal.jpg"));
 		texture_manager.AddTexture(
 			"metallicMap",
-			std::make_shared<sgl::Texture>("../Asset/Metal/Metalness.jpg"));
+			std::make_shared<sgl::Texture>("../Asset/Bronze/Metalness.jpg"));
 		texture_manager.AddTexture(
 			"roughnessMap",
-			std::make_shared<sgl::Texture>("../Asset/Metal/Roughness.jpg"));
+			std::make_shared<sgl::Texture>("../Asset/Bronze/Roughness.jpg"));
 		texture_manager.AddTexture(
 			"ambiantOcclusionMap",
 			std::make_shared<sgl::Texture>(
-				"../Asset/Metal/AmbientOcclusion.jpg"));
+				"../Asset/Bronze/AmbientOcclusion.jpg"));
 		gl_mesh->SetTextures(
 			{ "colorMap", "normalMap", "metallicMap", "roughnessMap", "ambiantOcclusionMap" });
 		device_->SetTextureManager(texture_manager);
