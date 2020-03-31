@@ -12,9 +12,9 @@ uniform sampler2D metallicMap;
 uniform sampler2D roughnessMap;
 uniform sampler2D ambiantOcclusionMap;
 
-uniform vec3 camPos;
-uniform vec3 lightPositions[4];
-uniform vec3 lightColors[4];
+uniform vec3 camera_position;
+uniform vec3 light_position[4];
+uniform vec3 light_color[4];
 
 
 
@@ -89,7 +89,7 @@ void main()
     float ao        = texture(ambiantOcclusionMap, TexCoords).r;
 
     vec3 N = getNormalFromMap();
-    vec3 V = normalize(camPos - WorldPos);
+    vec3 V = normalize(camera_position - WorldPos);
 
     // calculate reflectance at normal incidence; if dia-electric (like plastic) use F0 
     // of 0.04 and if it's a metal, use the albedo color as F0 (metallic workflow)    
@@ -101,11 +101,11 @@ void main()
     for(int i = 0; i < 4; ++i) 
     {
         // calculate per-light radiance
-        vec3 L = normalize(lightPositions[i] - WorldPos);
+        vec3 L = normalize(light_position[i] - WorldPos);
         vec3 H = normalize(V + L);
-        float distance = length(lightPositions[i] - WorldPos);
+        float distance = length(light_position[i] - WorldPos);
         float attenuation = 1.0 / (distance * distance);
-        vec3 radiance = lightColors[i] * attenuation;
+        vec3 radiance = light_color[i] * attenuation;
 
         // Cook-Torrance BRDF
         float NDF = DistributionGGX(N, H, roughness);   
