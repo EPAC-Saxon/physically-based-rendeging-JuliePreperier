@@ -34,7 +34,7 @@ namespace sgl {
 			const std::string& name, 
 			const std::shared_ptr<sgl::Texture>& texture);
 		bool RemoveTexture(const std::string& name);
-		void EnableTexture(const std::string& name) const;
+		int EnableTexture(const std::string& name) const;
 		void DisableTexture(const std::string& name) const;
 		void DisableAll() const;
 

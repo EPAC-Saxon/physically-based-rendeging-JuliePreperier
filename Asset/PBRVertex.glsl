@@ -14,7 +14,7 @@ uniform mat4 model;
 
 void main()
 {
-    TexCoords = aTexCoords;
+    TexCoords = vec2(aTexCoords.x, 1.0 - aTexCoords.y);
     WorldPos = vec3(model * vec4(aPos, 1.0));
     Normal = mat3(model) * aNormal;   
 
