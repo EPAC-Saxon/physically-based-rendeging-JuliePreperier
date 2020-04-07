@@ -1,0 +1,9 @@
+Pas d'erreur, tout bon
+
+Repartition des points :
+1/1pt presence
+3/3pt code
+3/3 (6x0.5) test
+3/3pt version final
+
+TOTAL : 10
